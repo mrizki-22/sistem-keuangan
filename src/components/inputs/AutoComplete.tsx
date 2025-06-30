@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 
 interface AutoCompleteProps<T> {
-  data: T[];
-  value: string;
-  onChange: (value: string) => void;
-  onSelect: (item: T) => void;
-  getOptionLabel: (item: T) => string;
+  data?: T[];
+  value?: string;
+  onChange?: (value: string) => void;
+  onSelect?: (item: T) => void;
+  getOptionLabel?: (item: T) => string;
   renderOption?: (item: T, inputValue: string) => React.ReactNode;
   placeholder?: string;
   className?: string;
@@ -13,27 +13,44 @@ interface AutoCompleteProps<T> {
   autoFocus?: boolean;
 }
 
-function AutoComplete<T>({ data, value, onChange, onSelect, getOptionLabel, renderOption, placeholder = "Masukkan NIM / Nama Mahasiswa", className = "", highlightStyle = "font-bold", autoFocus = false }: AutoCompleteProps<T>) {
+function AutoComplete<T>({
+  data = [],
+  value = "",
+  onChange = () => {},
+  onSelect = () => {},
+  getOptionLabel = (item: any) => item?.toString() || "",
+  renderOption,
+  placeholder = "Masukkan NIM / Nama Mahasiswa",
+  className = "",
+  highlightStyle = "font-bold",
+  autoFocus = false,
+}: AutoCompleteProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
   const [filteredData, setFilteredData] = useState<T[]>([]);
+  const [inputValue, setInputValue] = useState(value);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Sync internal state with external value
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
+
   useEffect(() => {
     // Filter data berdasarkan input
-    if (value.trim() === "") {
+    if (inputValue.trim() === "") {
       setFilteredData([]);
       return;
     }
 
     const filtered = data.filter((item) => {
       const label = getOptionLabel(item).toLowerCase();
-      return label.includes(value.toLowerCase());
+      return label.includes(inputValue.toLowerCase());
     });
 
     setFilteredData(filtered.slice(0, 10)); // Batasi hasil ke 10 item
     setIsOpen(filtered.length > 0);
-  }, [value, data, getOptionLabel]);
+  }, [inputValue, data, getOptionLabel]);
 
   useEffect(() => {
     // Close dropdown ketika klik di luar
@@ -70,7 +87,9 @@ function AutoComplete<T>({ data, value, onChange, onSelect, getOptionLabel, rend
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+    const newValue = e.target.value;
+    setInputValue(newValue);
+    onChange(newValue);
   };
 
   const handleSelect = (item: T) => {
@@ -88,9 +107,9 @@ function AutoComplete<T>({ data, value, onChange, onSelect, getOptionLabel, rend
       <input
         ref={inputRef}
         type="text"
-        value={value}
+        value={inputValue}
         onChange={handleChange}
-        onFocus={() => value && setIsOpen(true)}
+        onFocus={() => inputValue && setIsOpen(true)}
         placeholder={placeholder}
         className="w-full px-3 py-1.5 border border-gray-300 rounded focus:outline-none focus:border-blue-500 text-sm"
         autoFocus={autoFocus}
@@ -100,7 +119,7 @@ function AutoComplete<T>({ data, value, onChange, onSelect, getOptionLabel, rend
         <div className="absolute z-10 mt-1 w-full bg-white border border-gray-300 rounded shadow-lg max-h-72 overflow-auto text-sm">
           {filteredData.map((item, index) => (
             <div key={index} className="px-3 py-2 cursor-pointer hover:bg-gray-100 border-b border-gray-100 last:border-none" onClick={() => handleSelect(item)}>
-              {renderOption ? renderOption(item, value) : defaultRenderOption(item, value)}
+              {renderOption ? renderOption(item, inputValue) : defaultRenderOption(item, inputValue)}
             </div>
           ))}
         </div>

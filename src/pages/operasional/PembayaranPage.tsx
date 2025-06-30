@@ -75,7 +75,7 @@ export default function PembayaranPage() {
   return (
     <>
       <div className="flex items-baseline space-x-3 mb-4">
-        <h1 className="text-2xl font-medium text-gray-800">Pembayaran</h1>
+        <h1 className="text-2xl font-medium ">Pembayaran</h1>
         <p className="text-sm text-gray-500 mb-1">Tagihan</p>
       </div>
 

@@ -10,6 +10,8 @@ const Dashboard = lazy(() => import("../../pages/dashboard/DashboardPage"));
 //halaman menu operasional
 const Pembayaran = lazy(() => import("../../pages/operasional/PembayaranPage"));
 const PembayaranFormulir = lazy(() => import("../../pages/operasional/PembayaranFormulirPage"));
+const UktMahasiswa = lazy(() => import("../../pages/operasional/UktMahasiswaPage"));
+const MonitoringTarif = lazy(() => import("../../pages/operasional/MonitoringTarifPage"));
 
 // Route configuration
 export const routeConfig: RouteObject[] = [
@@ -28,5 +30,13 @@ export const routeConfig: RouteObject[] = [
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN_FORMULIR,
     element: withSuspense(PembayaranFormulir),
+  },
+  {
+    path: ROUTES.OPERASIONAL.UKT_MAHASISWA,
+    element: withSuspense(UktMahasiswa),
+  },
+  {
+    path: ROUTES.OPERASIONAL.MONITORING_TARIF,
+    element: withSuspense(MonitoringTarif),
   },
 ];
