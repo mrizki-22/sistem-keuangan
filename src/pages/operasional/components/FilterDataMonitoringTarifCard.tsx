@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SearchableDropdown from "../../../components/inputs/SearchableDropdown";
-import TextField from "../../../components/inputs/TextField";
 import { IoFilter } from "react-icons/io5";
 
 interface FilterDataMonitoringTarifProps {
@@ -18,7 +17,7 @@ interface FilterValues {
   kelompok: string;
 }
 
-const FilterDataMonitoringTarif: React.FC<FilterDataMonitoringTarifProps> = ({ onFilter, className = "" }) => {
+const FilterDataMonitoringTarifCard: React.FC<FilterDataMonitoringTarifProps> = ({ onFilter, className = "" }) => {
   const [filters, setFilters] = useState<FilterValues>({
     penerima: "Mahasiswa",
     periodeMasuk: "-- Semua Periode --",
@@ -115,4 +114,4 @@ const FilterDataMonitoringTarif: React.FC<FilterDataMonitoringTarifProps> = ({ o
   );
 };
 
-export default FilterDataMonitoringTarif;
+export default FilterDataMonitoringTarifCard;

@@ -4,6 +4,8 @@ import { menuList } from "./MenuData";
 import type { MenuItem } from "./MenuData";
 
 function DropdownMenu({ items, level = 0, openPath, setOpenPath, parentPath = [] }: { items: MenuItem[]; level?: number; openPath: string[]; setOpenPath: (val: string[]) => void; parentPath?: string[] }) {
+  const visibleItems = items.filter((item) => item.showInNavbar !== false);
+
   return (
     <ul
       className={
@@ -14,11 +16,17 @@ function DropdownMenu({ items, level = 0, openPath, setOpenPath, parentPath = []
           : "absolute left-full top-0 w-56 bg-white rounded shadow-xl z-30"
       }
     >
-      {items.map((item) => {
+      {visibleItems.map((item) => {
         const currentPath = [...parentPath, item.menu];
         const isOpen = openPath.length > level && openPath[level] === item.menu;
 
-        return item.children ? (
+        // Jika item memiliki children, pastikan hanya menampilkan submenu yang memiliki showInNavbar true
+        const visibleChildren = item.children?.filter((child) => child.showInNavbar !== false);
+
+        // Jika semua children tersembunyi, jangan tampilkan dropdown
+        const hasVisibleChildren = visibleChildren && visibleChildren.length > 0;
+
+        return hasVisibleChildren ? (
           <li key={item.menu} className="relative group" onMouseEnter={() => setOpenPath(currentPath)} onMouseLeave={() => setOpenPath(parentPath)}>
             <button
               className={`${level === 0 ? "px-5 py-3" : "flex justify-between w-full text-left px-4 py-2 m-2"} rounded transition-colors text-gray-800 hover:bg-green-800 hover:text-white flex items-center`}
@@ -30,15 +38,15 @@ function DropdownMenu({ items, level = 0, openPath, setOpenPath, parentPath = []
                 <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            {isOpen && <DropdownMenu items={item.children} level={level + 1} openPath={openPath} setOpenPath={setOpenPath} parentPath={currentPath} />}
+            {isOpen && <DropdownMenu items={item.children || []} level={level + 1} openPath={openPath} setOpenPath={setOpenPath} parentPath={currentPath} />}
           </li>
-        ) : (
+        ) : item.route ? (
           <li key={item.route}>
-            <Link to={item.route!} className={`${level === 0 ? "px-5 py-3 m-2" : "block px-4 py-2 m-2"} rounded transition-colors text-gray-800 hover:bg-green-800 hover:text-white`} onClick={() => setOpenPath([])}>
+            <Link to={item.route} className={`${level === 0 ? "px-5 py-3 m-2" : "block px-4 py-2 m-2"} rounded transition-colors text-gray-800 hover:bg-green-800 hover:text-white`} onClick={() => setOpenPath([])}>
               {item.menu}
             </Link>
           </li>
-        );
+        ) : null;
       })}
     </ul>
   );

@@ -5,14 +5,6 @@ import NotFoundPage from "../pages/NotFoundPage";
 import { ROUTES } from "./routes";
 import { withSuspense } from "../pages/LazyWrapper";
 
-// Lazy load pages
-const Dashboard = lazy(() => import("../../pages/dashboard/DashboardPage"));
-//halaman menu operasional
-const Pembayaran = lazy(() => import("../../pages/operasional/PembayaranPage"));
-const PembayaranFormulir = lazy(() => import("../../pages/operasional/PembayaranFormulirPage"));
-const UktMahasiswa = lazy(() => import("../../pages/operasional/UktMahasiswaPage"));
-const MonitoringTarif = lazy(() => import("../../pages/operasional/MonitoringTarifPage"));
-
 // Route configuration
 export const routeConfig: RouteObject[] = [
   {
@@ -21,22 +13,34 @@ export const routeConfig: RouteObject[] = [
   },
   {
     path: ROUTES.DASHBOARD,
-    element: withSuspense(Dashboard),
+    element: withSuspense(lazy(() => import("../../pages/dashboard/DashboardPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN,
-    element: withSuspense(Pembayaran),
+    element: withSuspense(lazy(() => import("../../pages/operasional/PembayaranPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN_FORMULIR,
-    element: withSuspense(PembayaranFormulir),
+    element: withSuspense(lazy(() => import("../../pages/operasional/PembayaranFormulirPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.UKT_MAHASISWA,
-    element: withSuspense(UktMahasiswa),
+    element: withSuspense(lazy(() => import("../../pages/operasional/UktMahasiswaPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.MONITORING_TARIF,
-    element: withSuspense(MonitoringTarif),
+    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringTarifPage"))),
+  },
+  {
+    path: ROUTES.OPERASIONAL.MONITORING_TAGIHAN,
+    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringTagihanfMahasiswaPage"))),
+  },
+  {
+    path: ROUTES.OPERASIONAL.MONITORING_ATURAN,
+    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringAturanAkademikPage"))),
+  },
+  {
+    path: ROUTES.OPERASIONAL.MONITORING_UKT,
+    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringUktPage"))),
   },
 ];

@@ -4,13 +4,20 @@ import { menuList } from "./MenuData";
 import type { MenuItem } from "./MenuData";
 
 function SidebarDropdown({ items, level = 0, openPath, setOpenPath, parentPath = [], onClose }: { items: MenuItem[]; level?: number; openPath: string[]; setOpenPath: (val: string[]) => void; parentPath?: string[]; onClose: () => void }) {
+  // Filter items yang akan ditampilkan di sidebar
+  const visibleItems = items.filter((item) => item.showInNavbar !== false);
+
   return (
     <ul className={level === 0 ? "flex flex-col gap-1 p-4" : "pl-4"}>
-      {items.map((item) => {
+      {visibleItems.map((item) => {
         const currentPath = [...parentPath, item.menu];
         const isOpen = openPath.length > level && openPath[level] === item.menu;
 
-        return item.children ? (
+        // Filter children yang visible
+        const visibleChildren = item.children?.filter((child) => child.showInNavbar !== false);
+        const hasVisibleChildren = visibleChildren && visibleChildren.length > 0;
+
+        return hasVisibleChildren ? (
           <li key={item.menu}>
             <button
               className="w-full flex justify-between items-center px-3 py-2 rounded text-left text-gray-800 hover:bg-green-800 hover:text-white transition-colors"
@@ -21,15 +28,15 @@ function SidebarDropdown({ items, level = 0, openPath, setOpenPath, parentPath =
                 <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            {isOpen && <SidebarDropdown items={item.children} level={level + 1} openPath={openPath} setOpenPath={setOpenPath} parentPath={currentPath} onClose={onClose} />}
+            {isOpen && <SidebarDropdown items={visibleChildren} level={level + 1} openPath={openPath} setOpenPath={setOpenPath} parentPath={currentPath} onClose={onClose} />}
           </li>
-        ) : (
+        ) : item.route ? (
           <li key={item.route}>
-            <Link to={item.route!} className="block px-3 py-2 rounded text-gray-800 hover:bg-green-800 hover:text-white transition-colors" onClick={onClose}>
+            <Link to={item.route} className="block px-3 py-2 rounded text-gray-800 hover:bg-green-800 hover:text-white transition-colors" onClick={onClose}>
               {item.menu}
             </Link>
           </li>
-        );
+        ) : null;
       })}
     </ul>
   );
