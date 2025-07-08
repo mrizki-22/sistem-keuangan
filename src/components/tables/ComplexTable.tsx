@@ -65,7 +65,7 @@ const ComplexTable: React.FC<ComplexTableProps> = ({
     if (!complexHeader) return null;
 
     return (
-      <thead className={`bg-blue-800 text-white text-xs ${headerClassName}`}>
+      <thead className={`bg-blue-900 text-white text-xs ${headerClassName}`}>
         {complexHeader.rows.map((row, rowIndex) => (
           <tr key={`complex-header-row-${rowIndex}`}>
             {row.map((cell, cellIndex) => (

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { IoMdArrowDropright, IoMdHome } from "react-icons/io";
 import { useMemo } from "react";
-import { menuList, type MenuItem } from "../navbar/MenuData";
+import { menuList, type MenuItem } from "../navigation/MenuData";
 
 function Breadcrumb() {
   const location = useLocation();
@@ -60,8 +60,9 @@ function Breadcrumb() {
             <span className="mx-2 text-gray-400">
               <IoMdArrowDropright />
             </span>
-
-            {item.active ? <span className="font-medium text-green-800">{item.label}</span> : <p>{item.label}</p>}
+            <Link to={item.path} className="hover:text-green-800">
+              {item.active ? <span className="font-medium text-green-800">{item.label}</span> : <p>{item.label}</p>}
+            </Link>
           </li>
         ))}
       </ol>

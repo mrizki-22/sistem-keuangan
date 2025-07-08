@@ -15,6 +15,7 @@ export const routeConfig: RouteObject[] = [
     path: ROUTES.DASHBOARD,
     element: withSuspense(lazy(() => import("../../pages/dashboard/DashboardPage"))),
   },
+  // Operasional Routes
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN,
     element: withSuspense(lazy(() => import("../../pages/operasional/PembayaranPage"))),
@@ -42,5 +43,26 @@ export const routeConfig: RouteObject[] = [
   {
     path: ROUTES.OPERASIONAL.MONITORING_UKT,
     element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringUktPage"))),
+  },
+  // Transaksi Routes
+  {
+    path: ROUTES.TRANSAKSI.KEUANGAN,
+    element: withSuspense(lazy(() => import("../../pages/transaksi/KeuanganPage"))),
+  },
+  {
+    path: ROUTES.TRANSAKSI.TAGIHAN.TAGIHAN,
+    element: withSuspense(lazy(() => import("../../pages/transaksi/TagihanPage"))),
+  },
+  {
+    path: ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN,
+    element: withSuspense(lazy(() => import("../../pages/transaksi/DetailTagihanPage"))),
+  },
+  {
+    path: ROUTES.TRANSAKSI.PEMBAYARAN,
+    element: withSuspense(lazy(() => import("../../pages/transaksi/PembayaranPage"))),
+  },
+  {
+    path: ROUTES.TRANSAKSI.DEPOSIT,
+    element: withSuspense(lazy(() => import("../../pages/transaksi/DepositPage"))),
   },
 ];

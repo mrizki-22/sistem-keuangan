@@ -16,7 +16,10 @@ export const ROUTES = {
   // Transaksi
   TRANSAKSI: {
     KEUANGAN: "/transaksi/keuangan",
-    TAGIHAN: "/transaksi/tagihan",
+    TAGIHAN: {
+      TAGIHAN: "/transaksi/tagihan",
+      DETAIL_TAGIHAN: "/transaksi/tagihan/detail_tagihan",
+    },
     PEMBAYARAN: "/transaksi/pembayaran",
     DEPOSIT: "/transaksi/deposit",
     VIRTUAL_ACCOUNT: "/transaksi/virtual_account",
