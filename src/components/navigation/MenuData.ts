@@ -19,14 +19,11 @@ const menuList = [
     menu: "Transaksi",
     children: [
       { menu: "Keuangan", route: ROUTES.TRANSAKSI.KEUANGAN, showInNavbar: true },
-      {
-        menu: "Tagihan",
-        route: ROUTES.TRANSAKSI.TAGIHAN.TAGIHAN,
-        showInNavbar: true,
-        children: [{ menu: "Detail Tagihan", route: ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN, showInNavbar: false }],
-      },
+      { menu: "Tagihan", route: ROUTES.TRANSAKSI.TAGIHAN, showInNavbar: true },
+      { menu: "Detail Tagihan", route: ROUTES.TRANSAKSI.DETAIL_TAGIHAN, showInNavbar: false },
       { menu: "Pembayaran", route: ROUTES.TRANSAKSI.PEMBAYARAN, showInNavbar: true },
       { menu: "Deposit", route: ROUTES.TRANSAKSI.DEPOSIT, showInNavbar: true },
+      { menu: "Detail Deposit", route: ROUTES.TRANSAKSI.DETAIL_DEPOSIT, showInNavbar: false },
       { menu: "Virtual Account", route: ROUTES.TRANSAKSI.VIRTUAL_ACCOUNT, showInNavbar: true },
       { menu: "Potongan & Beasiswa", route: ROUTES.TRANSAKSI.POTONGAN_BEASISWA, showInNavbar: true },
       { menu: "Voucher", route: ROUTES.TRANSAKSI.VOUCHER, showInNavbar: true },

@@ -1,10 +1,10 @@
 import { IoMdRefresh, IoMdSearch } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import Dropdown from "../../components/inputs/Dropdown";
-import TextField from "../../components/inputs/TextField";
-import MonitoringTarifTable from "./components/MonitoringTarifTable";
-import FilterDataMonitoringTagihanCard from "./components/FilterDataMonitoringTagihanCard";
-import MonitoringTagihanMahasiswaTable from "./components/MonitoringTagihanMahasiswaTable";
+import IconButton from "../../../components/button/IconButton";
+import Dropdown from "../../../components/inputs/Dropdown";
+import TextField from "../../../components/inputs/TextField";
+import MonitoringTarifTable from "../components/MonitoringTarifTable";
+import FilterDataMonitoringTagihanCard from "../components/FilterDataMonitoringTagihanCard";
+import MonitoringTagihanMahasiswaTable from "../components/MonitoringTagihanMahasiswaTable";
 
 const data = [
   {

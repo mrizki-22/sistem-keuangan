@@ -1,10 +1,10 @@
 import { useState } from "react";
-import HighlightText from "../../components/highlightText/HighLightText";
-import AutoComplete from "../../components/inputs/AutoComplete";
-import IconButton from "../../components/button/IconButton";
+import HighlightText from "../../../components/highlightText/HighLightText";
+import AutoComplete from "../../../components/inputs/AutoComplete";
+import IconButton from "../../../components/button/IconButton";
 import { IoMdRefresh, IoMdSearch } from "react-icons/io";
-import InformasiPendaftarCard from "./components/InformasiPendaftarCard";
-import TagihanFormulirTable from "./components/TagihanFormulirTable";
+import InformasiPendaftarCard from "../components/InformasiPendaftarCard";
+import TagihanFormulirTable from "../components/TagihanFormulirTable";
 
 // Tipe untuk data mahasiswa
 interface Student {

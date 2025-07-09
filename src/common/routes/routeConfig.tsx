@@ -13,56 +13,60 @@ export const routeConfig: RouteObject[] = [
   },
   {
     path: ROUTES.DASHBOARD,
-    element: withSuspense(lazy(() => import("../../pages/dashboard/DashboardPage"))),
+    element: withSuspense(lazy(() => import("../../features/dashboard/pages/DashboardPage"))),
   },
   // Operasional Routes
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN,
-    element: withSuspense(lazy(() => import("../../pages/operasional/PembayaranPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/PembayaranPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.PEMBAYARAN_FORMULIR,
-    element: withSuspense(lazy(() => import("../../pages/operasional/PembayaranFormulirPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/PembayaranFormulirPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.UKT_MAHASISWA,
-    element: withSuspense(lazy(() => import("../../pages/operasional/UktMahasiswaPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/UktMahasiswaPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.MONITORING_TARIF,
-    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringTarifPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/MonitoringTarifPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.MONITORING_TAGIHAN,
-    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringTagihanfMahasiswaPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/MonitoringTagihanfMahasiswaPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.MONITORING_ATURAN,
-    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringAturanAkademikPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/MonitoringAturanAkademikPage"))),
   },
   {
     path: ROUTES.OPERASIONAL.MONITORING_UKT,
-    element: withSuspense(lazy(() => import("../../pages/operasional/MonitoringUktPage"))),
+    element: withSuspense(lazy(() => import("../../features/operasional/pages/MonitoringUktPage"))),
   },
   // Transaksi Routes
   {
     path: ROUTES.TRANSAKSI.KEUANGAN,
-    element: withSuspense(lazy(() => import("../../pages/transaksi/KeuanganPage"))),
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/KeuanganPage"))),
   },
   {
-    path: ROUTES.TRANSAKSI.TAGIHAN.TAGIHAN,
-    element: withSuspense(lazy(() => import("../../pages/transaksi/TagihanPage"))),
+    path: ROUTES.TRANSAKSI.TAGIHAN,
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/TagihanPage"))),
   },
   {
-    path: ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN,
-    element: withSuspense(lazy(() => import("../../pages/transaksi/DetailTagihanPage"))),
+    path: ROUTES.TRANSAKSI.DETAIL_TAGIHAN,
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/DetailTagihanPage"))),
   },
   {
     path: ROUTES.TRANSAKSI.PEMBAYARAN,
-    element: withSuspense(lazy(() => import("../../pages/transaksi/PembayaranPage"))),
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/PembayaranPage"))),
   },
   {
     path: ROUTES.TRANSAKSI.DEPOSIT,
-    element: withSuspense(lazy(() => import("../../pages/transaksi/DepositPage"))),
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/DepositPage"))),
+  },
+  {
+    path: ROUTES.TRANSAKSI.DETAIL_DEPOSIT,
+    element: withSuspense(lazy(() => import("../../features/transaksi/pages/DetailDepositPage"))),
   },
 ];

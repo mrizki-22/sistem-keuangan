@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="container  px-4 sm:px-[7.5rem] py-6 flex-grow">
+      <div className="container  px-4 sm:px-[7.5rem] py-6 flex-grow mb-30">
         <div className="mb-4">
           <Breadcrumb />
         </div>

@@ -1,8 +1,8 @@
 import { IoMdRefresh, IoMdSearch } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import Dropdown from "../../components/inputs/Dropdown";
-import TextField from "../../components/inputs/TextField";
-import KeuanganTable from "./components/KeuanganTable";
+import IconButton from "../../../components/button/IconButton";
+import Dropdown from "../../../components/inputs/Dropdown";
+import TextField from "../../../components/inputs/TextField";
+import KeuanganTable from "../components/KeuanganTable";
 
 const data = [
   {

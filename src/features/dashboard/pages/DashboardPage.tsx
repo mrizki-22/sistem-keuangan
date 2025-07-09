@@ -1,6 +1,6 @@
 import { IoCardOutline, IoCheckmarkCircleOutline, IoSaveOutline, IoWalletOutline } from "react-icons/io5";
-import Dropdown from "../../components/inputs/Dropdown";
-import DashboardInformationCard from "./components/DashboardInformationCard";
+import Dropdown from "../../../components/inputs/Dropdown";
+import DashboardInformationCard from "../components/DashboardInformationCard";
 
 export default function DashboardPage() {
   document.title = "Dashboard - Selamat Datang di Sistem Informasi Keuangan";

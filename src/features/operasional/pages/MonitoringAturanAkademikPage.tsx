@@ -1,5 +1,5 @@
-import FilterDataMonitoringAturanAkademikCard from "./components/FilterDataMonitoringAturanAkademikCard";
-import MonitoringAturanAkademikTable from "./components/MonitoringAturanAkademikTable";
+import FilterDataMonitoringAturanAkademikCard from "../components/FilterDataMonitoringAturanAkademikCard";
+import MonitoringAturanAkademikTable from "../components/MonitoringAturanAkademikTable";
 
 export default function MonitoringAturanAkademikPage() {
   document.title = "Monitoring Aturan Akademik";

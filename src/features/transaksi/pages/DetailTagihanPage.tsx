@@ -1,15 +1,17 @@
 //Saat menekan tombol tambah di halaman Tagihan, maka akan diarahkan ke halaman Detail Tagihan ini
 
 import { IoMdArrowBack, IoMdSave, IoMdSearch } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import TextField from "../../components/inputs/TextField";
-import DetailTagihanForm from "./components/DetailTagihanForm";
-import type { TabItem } from "../../components/navigation/TabNavigation";
+import IconButton from "../../../components/button/IconButton";
+import TextField from "../../../components/inputs/TextField";
+import DetailTagihanForm from "../components/DetailTagihanForm";
+import type { TabItem } from "../../../components/navigation/TabNavigation";
 import { useState } from "react";
-import TabNavigation from "../../components/navigation/TabNavigation";
+import TabNavigation from "../../../components/navigation/TabNavigation";
+import { useNavigate } from "react-router-dom";
 
 export default function DetailTagihanPage() {
   document.title = "Transaksi - Detail Tagihan";
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState<string>("tagihan");
 
@@ -36,7 +38,7 @@ export default function DetailTagihanPage() {
             <IconButton icon={<IoMdSearch />} variant="success" />
           </div>
           <div className="flex space-x-0.5">
-            <IconButton icon={<IoMdArrowBack />} text="Kembali ke Daftar" variant="info" />
+            <IconButton icon={<IoMdArrowBack />} text="Kembali ke Daftar" variant="info" onClick={() => navigate(-1)} />
             <IconButton icon={<IoMdSave />} text="Simpan" variant="success" />
           </div>
         </div>

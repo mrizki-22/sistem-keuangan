@@ -1,9 +1,9 @@
 import { IoMdRefresh, IoMdSearch } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import Dropdown from "../../components/inputs/Dropdown";
-import TextField from "../../components/inputs/TextField";
-import FilterDataMonitoringUktCard from "./components/FilterDataMonitoringUktCard";
-import MonitoringUktTable from "./components/MonitoringUktTable";
+import IconButton from "../../../components/button/IconButton";
+import Dropdown from "../../../components/inputs/Dropdown";
+import TextField from "../../../components/inputs/TextField";
+import FilterDataMonitoringUktCard from "../components/FilterDataMonitoringUktCard";
+import MonitoringUktTable from "../components/MonitoringUktTable";
 
 const data = [
   {

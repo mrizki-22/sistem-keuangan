@@ -33,13 +33,18 @@ function AutoComplete<T>({
 
   // Sync internal state with external value
   useEffect(() => {
-    setInputValue(value);
+    if (value !== inputValue) {
+      setInputValue(value);
+    }
   }, [value]);
 
   useEffect(() => {
     // Filter data berdasarkan input
     if (inputValue.trim() === "") {
-      setFilteredData([]);
+      // Only update filtered data if it's not already empty
+      if (filteredData.length > 0) {
+        setFilteredData([]);
+      }
       return;
     }
 
@@ -50,7 +55,7 @@ function AutoComplete<T>({
 
     setFilteredData(filtered.slice(0, 10)); // Batasi hasil ke 10 item
     setIsOpen(filtered.length > 0);
-  }, [inputValue, data, getOptionLabel]);
+  }, [inputValue, data, getOptionLabel, filteredData.length]);
 
   useEffect(() => {
     // Close dropdown ketika klik di luar
@@ -89,7 +94,11 @@ function AutoComplete<T>({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
-    onChange(newValue);
+
+    // Only call external onChange if the value actually changed
+    if (newValue !== value) {
+      onChange(newValue);
+    }
   };
 
   const handleSelect = (item: T) => {

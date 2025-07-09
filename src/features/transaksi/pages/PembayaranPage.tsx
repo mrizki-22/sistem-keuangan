@@ -1,10 +1,11 @@
 import { IoMdAdd, IoMdRefresh, IoMdSearch, IoMdSettings, IoMdTrash } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import FilterDataPembayaranCard from "./components/FilterDataPembayaranCard";
-import { ROUTES } from "../../common/routes/routes";
-import TextField from "../../components/inputs/TextField";
-import Dropdown from "../../components/inputs/Dropdown";
-import PembayaranTable from "./components/PembayaranTable";
+import IconButton from "../../../components/button/IconButton";
+import FilterDataPembayaranCard from "../components/FilterDataPembayaranCard";
+import { ROUTES } from "../../../common/routes/routes";
+import TextField from "../../../components/inputs/TextField";
+import Dropdown from "../../../components/inputs/Dropdown";
+import PembayaranTable from "../components/PembayaranTable";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -51,6 +52,8 @@ const data = [
 export default function PembayaranPage() {
   document.title = "Transaksi - Pembayaran";
 
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex items-baseline space-x-3 mb-4">
@@ -78,7 +81,7 @@ export default function PembayaranPage() {
               variant="success"
               className="text-sm"
               onClick={() => {
-                // navigate(ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN);
+                navigate(ROUTES.OPERASIONAL.PEMBAYARAN);
               }}
             />
           </div>

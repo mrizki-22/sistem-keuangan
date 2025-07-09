@@ -1,9 +1,11 @@
 import { IoMdAdd, IoMdCloudUpload, IoMdDownload, IoMdList, IoMdRefresh, IoMdSearch } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import FilterDataDepositCard from "./components/FilterDataDepositCard";
-import TextField from "../../components/inputs/TextField";
-import Dropdown from "../../components/inputs/Dropdown";
-import DepositTable from "./components/DepositTable";
+import IconButton from "../../../components/button/IconButton";
+import FilterDataDepositCard from "../components/FilterDataDepositCard";
+import TextField from "../../../components/inputs/TextField";
+import Dropdown from "../../../components/inputs/Dropdown";
+import DepositTable from "../components/DepositTable";
+import { ROUTES } from "../../../common/routes/routes";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -35,6 +37,8 @@ const data = [
 export default function DepositPage() {
   document.title = "Transaksi - Deposit";
 
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="flex items-baseline space-x-3 mb-4">
@@ -62,29 +66,11 @@ export default function DepositPage() {
               variant="success"
               className="text-sm"
               onClick={() => {
-                // navigate(ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN);
+                navigate(ROUTES.TRANSAKSI.DETAIL_DEPOSIT);
               }}
             />
-            <IconButton
-              icon={<IoMdList />}
-              responsive={false}
-              text="Saldo Deposit"
-              variant="info"
-              className="text-sm"
-              onClick={() => {
-                // navigate(ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN);
-              }}
-            />
-            <IconButton
-              icon={<IoMdCloudUpload />}
-              responsive={false}
-              text="Import"
-              variant="info"
-              className="text-sm"
-              onClick={() => {
-                // navigate(ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN);
-              }}
-            />
+            <IconButton icon={<IoMdList />} responsive={false} text="Saldo Deposit" variant="info" className="text-sm" onClick={() => {}} />
+            <IconButton icon={<IoMdCloudUpload />} responsive={false} text="Import" variant="info" className="text-sm" onClick={() => {}} />
           </div>
         </div>
         <DepositTable data={data} />

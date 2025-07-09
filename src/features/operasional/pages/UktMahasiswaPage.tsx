@@ -1,9 +1,9 @@
 import { useState } from "react";
-import CariDataMahasiswaCard from "./components/CariDataMahasiswaCard";
-import UktMahasiswaTable from "./components/UktMahasiswaTable";
-import Dropdown from "../../components/inputs/Dropdown";
-import TextField from "../../components/inputs/TextField";
-import IconButton from "../../components/button/IconButton";
+import CariDataMahasiswaCard from "../components/CariDataMahasiswaCard";
+import UktMahasiswaTable from "../components/UktMahasiswaTable";
+import Dropdown from "../../../components/inputs/Dropdown";
+import TextField from "../../../components/inputs/TextField";
+import IconButton from "../../../components/button/IconButton";
 import { IoMdCloudUpload, IoMdRefresh, IoMdSearch } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
 

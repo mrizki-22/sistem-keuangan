@@ -1,14 +1,14 @@
 import { IoMdAdd, IoMdCloudUpload, IoMdRefresh, IoMdSearch, IoMdSettings, IoMdTrash } from "react-icons/io";
-import IconButton from "../../components/button/IconButton";
-import Dropdown from "../../components/inputs/Dropdown";
-import FilterDataTagihanCard from "./components/FIlterDataTagihanCard";
-import TextField from "../../components/inputs/TextField";
-import TagihanTable from "./components/TagihanTable";
+import IconButton from "../../../components/button/IconButton";
+import Dropdown from "../../../components/inputs/Dropdown";
+import FilterDataTagihanCard from "../components/FIlterDataTagihanCard";
+import TextField from "../../../components/inputs/TextField";
+import TagihanTable from "../components/TagihanTable";
 
-import { type TagihanData } from "./components/TagihanTable";
-import InformasiJenisTagihanCard from "./components/InformasiJenisTagihanCard";
+import { type TagihanData } from "../components/TagihanTable";
+import InformasiJenisTagihanCard from "../components/InformasiJenisTagihanCard";
 import { useNavigate } from "react-router-dom";
-import { ROUTES } from "../../common/routes/routes";
+import { ROUTES } from "../../../common/routes/routes";
 
 const data: TagihanData[] = [
   {
@@ -87,7 +87,7 @@ export default function TagihanPage() {
               variant="success"
               className="text-sm"
               onClick={() => {
-                navigate(ROUTES.TRANSAKSI.TAGIHAN.DETAIL_TAGIHAN);
+                navigate(ROUTES.TRANSAKSI.DETAIL_TAGIHAN);
               }}
             />
             <IconButton icon={<IoMdTrash />} text="Hapus" responsive={false} variant="danger" className="text-sm" onClick={() => console.log("Refresh")} />
